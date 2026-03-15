@@ -1,0 +1,140 @@
+class Book:
+    def __init__(self,title,author,year,genre,pages):
+        self.title=title
+        self.author=author
+        self.year=year
+        self.genre=genre
+        self.pages=pages
+     def display(self):
+         book_tuple=(self.title,self.author,self.year,self.genre,self.pages)
+        print("Book info:",book_tuple)
+
+class ZBook(Book):
+    def  display(self):
+        print(f"ZBook:{self.title}-{self.author}({self.year})-Genre:{self.genre},Pages:{self.pages}")
+
+class Library:
+    def__init__(self):
+        self.books=[]
+        self.members={} 
+       
+    def add_book(self):
+         title = input("Enter title:")
+         author = input("Enter author:")
+         year = int(input("Enter year:"))
+         genre = input("Enter genre:")
+         pages = int(input("Enter pages:"))
+         book = Book(title,author,year,genre,pages)
+         self.books.append(book)
+         print("Book added successfully!")
+
+    def show_books(self):
+        if len(self.books)==0:
+            print("No books available.")
+        else:
+            for book in self.books:
+                book.disblay()
+
+    def search_book(self):
+        title=input("Enter book title to search:")
+        for book in self.book:
+            if book.title.lower(==title.lower()):
+                print("Book found:")
+                book.display()
+                break
+        else:
+            print("Book not found.")
+
+    def remove_book(self):
+        title=input("Enter title to remove:")
+        for book in self.books:
+            if book.title==title:
+                self.books.remove(book)
+                print("Book removed.")
+                break
+
+    def add_member(self):
+        name=input("Enter member name:")
+        member_id=input("Enter member id:")
+        self.members[member_id]=name
+        print("Member added")
+
+    def show_authors(self):
+        authors=set()
+        for book in self.books:
+            authors.add(book.authors)
+        print("Authors:",authors)
+         
+
+def main():
+    Library=Library()
+
+    while True:
+        print("\nLibrary Management System")
+        print("1 Add Book")
+        print("2 Show Book")
+        print("3 Search Book")
+        print("4 Remove Book")
+        print("5 Sort Book")
+        print("6 Show Authors")
+        print("7 Add Member")
+        print("8 Range Example")
+        print("9 Exit")
+
+        choice=input("Enter choice:")
+
+        if choice=="1":
+            Library.add_book()
+        elif choice=="2":
+            Library.show_books()
+        elif choice=="3":
+            Library.search_book()
+        elif choice=="4":
+            Library.remove_book()
+        elif choice=="5":
+            Library.sort_book()
+        elif choice=="6":
+            Library.show_authors()
+        elif choice=="7":
+            Library.add_member()
+        elif choice=="8":
+            for i in range(1,10,2):
+                print("Number:",i)
+        elif choice=="9":
+                print("Goodbye!")
+                break
+         else:
+            print("Invalid choice.")
+main()
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     #-------------------------------------
+  
+     
+        
